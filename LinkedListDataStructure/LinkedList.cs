@@ -119,5 +119,44 @@ namespace LinkedListDataStructure
             }
             return count;
         }
+        public void DeleteNodeAtParticularPosition(int position)
+        {
+            if (this.head == null)
+            {
+                Console.WriteLine("List is empty");
+                return;
+            }
+            Node temp = this.head;
+            if (position == 0)
+            {
+                this.head = temp.Next;
+            }
+            for (int i = 0; temp != null && i < position - 1; i++)
+            {
+                temp = temp.Next;
+            }
+            if (temp == null || temp.Next == null)
+            {
+                return;
+            }
+            Node next = temp.Next.Next;
+            temp.Next = next;
+            Size();
+        }
+        public void Size()
+        {
+            int count = 0;
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            while (temp != null)
+            {
+                count++;
+                temp = temp.Next;
+            }
+            Console.WriteLine("Size is " + count);
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace LikedListDataStructure
             bool flag = true;
             while(flag)
             {
-                Console.WriteLine("Choose Option To Perform\n1.Add To Linked List\n2.Reverse Added List\n3.Append The List\n4.Add In Between\n5.Delete First Element\n6.Delete Last Element\n7.Search Node\n8.Insert Node in LinkedList\n9.Exit");
+                Console.WriteLine("Choose Option To Perform\n1.Add To Linked List\n2.Reverse Added List\n3.Append The List\n4.Add In Between\n5.Delete First Element\n6.Delete Last Element\n7.Search Node\n8.Insert Node in LinkedList\n9.Delete Node At Particular Position\n10.Exit");
                 int option=Convert.ToInt32(Console.ReadLine());
                 LinkedList list = new LinkedList();
                 switch (option)
@@ -65,7 +65,17 @@ namespace LikedListDataStructure
                         list.Add(70);
                         list.Display();
                         break;
-                        case 9:
+                    case 9:
+                        list.Add(56);
+                        list.Add(30);
+                        list.InsertBetwen(2, 40);
+                        list.Add(70);
+                        list.Display();
+                        list.DeleteNodeAtParticularPosition(2);
+                        list.Display();
+                        list.Size();
+                        break;
+                        case 10:
                         flag= false;
                         break;
                 }
