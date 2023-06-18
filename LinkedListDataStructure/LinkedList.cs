@@ -12,31 +12,31 @@ namespace LinkedListDataStructure
         public void Add(int data)
         {
             Node node = new Node(data);
-            if(this.head == null)
+            if (this.head == null)
             {
                 head = node;
             }
             else
             {
-                Node temp= head;
-                while(temp.Next != null)
+                Node temp = head;
+                while (temp.Next != null)
                 {
                     temp = temp.Next;
                 }
                 temp.Next = node;
             }
-            Console.WriteLine("{0} inserted into the LinkedList",node.data);
+            Console.WriteLine("{0} inserted into the LinkedList", node.data);
         }
         public void AddReverse(int data)
         {
-            Node newNode= new Node(data);
-            if(head == null)
+            Node newNode = new Node(data);
+            if (head == null)
             {
                 head = newNode;
             }
             else
             {
-                Node temp= this.head;
+                Node temp = this.head;
                 head = newNode;
                 head.Next = temp;
             }
@@ -56,23 +56,23 @@ namespace LinkedListDataStructure
         }
         public void InsertBetwen(int position, int data)
         {
-            Node newestnode= new Node(data);
-            if(this.head == null)
+            Node newestnode = new Node(data);
+            if (this.head == null)
             {
                 this.head = newestnode;
             }
-            if(position == 0)
+            if (position == 0)
             {
                 newestnode.Next = this.head;
                 this.head = newestnode;
                 return;
             }
             Node prev = null;
-            Node current= this.head;
+            Node current = this.head;
             int count = 0;
-            while(current != null && count < position)
+            while (current != null && count < position)
             {
-                prev=current;
+                prev = current;
                 current = current.Next;
                 count++;
             }
@@ -81,7 +81,7 @@ namespace LinkedListDataStructure
         }
         public void DeleteFirstElement()
         {
-            if(this.head == null)
+            if (this.head == null)
             {
                 Console.WriteLine("Linked List is empty");
             }
@@ -89,16 +89,16 @@ namespace LinkedListDataStructure
         }
         public void DeleteLastElement()
         {
-            if(this.head == null)
+            if (this.head == null)
             {
                 Console.WriteLine("Linked List is empty");
             }
-            Node node2= head;
-            if(head.Next == null)
+            Node node2 = head;
+            if (head.Next == null)
             {
                 this.head = null;
             }
-            while(node2.Next.Next != null)
+            while (node2.Next.Next != null)
             {
                 node2 = node2.Next;
             }
@@ -108,9 +108,9 @@ namespace LinkedListDataStructure
         {
             Node node = this.head;
             int count = 0;
-            while(node != null)
+            while (node != null)
             {
-                if(node.data.Equals(value))
+                if (node.data.Equals(value))
                 {
                     Console.WriteLine(count);
                 }
@@ -157,6 +157,37 @@ namespace LinkedListDataStructure
                 temp = temp.Next;
             }
             Console.WriteLine("Size is " + count);
+        }
+        public void Sort()
+        {
+            if (head == null)
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            Size();
+            Node current = this.head;
+            Node index = null;
+            int temp = 0;
+            while (current != null)
+            {
+                index = current.Next;
+                while (index != null)
+                {
+                    int a = current.data;
+                    int b = index.data;
+                    if (a > b)
+                    {
+                        temp = a;
+                        a = b;
+                        b = temp;
+                    }
+                    current.data = a;
+                    index.data = b;
+                    index = index.Next;
+                    current = current.Next;
+                }
+
+            }
         }
     }
 }
