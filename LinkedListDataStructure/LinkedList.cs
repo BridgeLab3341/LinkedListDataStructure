@@ -104,5 +104,20 @@ namespace LinkedListDataStructure
             }
             node2.Next = null;
         }
+        public int SearchNode(int value)
+        {
+            Node node = this.head;
+            int count = 0;
+            while(node != null)
+            {
+                if(node.data.Equals(value))
+                {
+                    Console.WriteLine(count);
+                }
+                node = node.Next;
+                count++;
+            }
+            return count;
+        }
     }
 }
