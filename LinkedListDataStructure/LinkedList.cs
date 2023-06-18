@@ -54,5 +54,30 @@ namespace LinkedListDataStructure
                 temp = temp.Next;
             }
         }
+        public void InsertBetwen(int position, int data)
+        {
+            Node newestnode= new Node(data);
+            if(this.head == null)
+            {
+                this.head = newestnode;
+            }
+            if(position == 0)
+            {
+                newestnode.Next = this.head;
+                this.head = newestnode;
+                return;
+            }
+            Node prev = null;
+            Node current= this.head;
+            int count = 0;
+            while(current != null && count < position)
+            {
+                prev=current;
+                current = current.Next;
+                count++;
+            }
+            newestnode.Next = prev.Next;
+            prev.Next = newestnode;
+        }
     }
 }
