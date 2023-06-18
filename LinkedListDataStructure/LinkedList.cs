@@ -27,5 +27,32 @@ namespace LinkedListDataStructure
             }
             Console.WriteLine("{0} inserted into the LinkedList",node.data);
         }
+        public void AddReverse(int data)
+        {
+            Node newNode= new Node(data);
+            if(head == null)
+            {
+                head = newNode;
+            }
+            else
+            {
+                Node temp= this.head;
+                head = newNode;
+                head.Next = temp;
+            }
+        }
+        public void Display()
+        {
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            while (temp != null)
+            {
+                Console.WriteLine(temp.data + "  ");
+                temp = temp.Next;
+            }
+        }
     }
 }
