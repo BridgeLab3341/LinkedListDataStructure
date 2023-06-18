@@ -79,5 +79,13 @@ namespace LinkedListDataStructure
             newestnode.Next = prev.Next;
             prev.Next = newestnode;
         }
+        public void DeleteFirstElement()
+        {
+            if(this.head == null)
+            {
+                Console.WriteLine("Linked List is empty");
+            }
+            this.head = this.head.Next;
+        }
     }
 }
